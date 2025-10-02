@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>静态页面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      background: #f6f7fb;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1300px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 左侧导航 */
+    .sidebar {
+      width: 240px;
+      background: #f9fafc;
+      border-right: 1px solid #eee;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar .profile {
+      display: flex;
+      align-items: center;
+      padding: 0 20px 20px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .sidebar .profile img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .sidebar .profile span {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .menu {
+      flex: 1;
+      margin-top: 20px;
+    }
+
+    .menu ul {
+      list-style: none;
+    }
+
+    .menu li {
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #444;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .menu li:hover {
+      background: #eef3ff;
+      color: #3a6ff7;
+    }
+
+    .sidebar-footer {
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* 主内容区 */
+    .main {
+      flex: 1;
+      padding: 40px 50px;
+      position: relative;
+    }
+
+    /* 顶部右上角区域 */
+    .topbar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bell {
+      width: 22px;
+      height: 22px;
+      background: url("https://cdn-icons-png.flaticon.com/512/3602/3602145.png") no-repeat center/cover;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .bell::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 8px;
+      height: 8px;
+      background: #ff4d4f;
+      border-radius: 50%;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header {
+      text-align: center;
+      margin: 60px 0 40px 0; /* 留出顶部导航空间 */
+    }
+
+    .header h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .header h3 {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: all 0.25s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      background: #f0f4ff;
+      color: #3a6ff7;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    /* 小美术优化：渐变标题 */
+    .header h2 span {
+      background: linear-gradient(90deg, #3a6ff7, #7b2ff7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- 左侧导航 -->
+    <aside class="sidebar">
+      <div>
+        <div class="profile">
+          <img src="王姐.jpg" alt="摩根">
+          <span>摩根ai</span>
+        </div>
+        <div class="menu">
+          <ul>
+            <li>新对话</li>
+            <li>AI 搜索</li>
+            <li>帮我写作</li>
+            <li>图像生成</li>
+            <li>阅读总结</li>
+            <li>音乐生成</li>
+            <li>最近对话</li>
+            <li>我的智能体</li>
+            <li>收藏夹</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        下载 Windows 客户端
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main">
+      <!-- 顶部右上角 -->
+      <div class="topbar">
+        <div class="bell"></div>
+        <div class="avatar">
+          <img src="123920135_p0.jpg" alt="用户头像">
+        </div>
+      </div>
+
+      <div class="header">
+        <h2>你好，<span>用户7105015295005</span></h2>
+        <h3>你的超级助手已上线！</h3>
+      </div>
+
+      <div class="features">
+        <div class="card">
+          <div class="tag">AI 搜索</div>
+          <h4>AI 搜索</h4>
+          <p>实时对话，书籍查询，整合信息。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">帮我写作</div>
+          <h4>帮我写作</h4>
+          <p>各种体裁，润色改写，一键成文。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">图像生成</div>
+          <h4>图像生成</h4>
+          <p>自定义风格，角色设定，复刻同款。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">阅读总结</div>
+          <h4>阅读总结</h4>
+          <p>论文总结，财经合同，翻译总结。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">音乐生成</div>
+          <h4>音乐生成</h4>
+          <p>歌词配曲，风格匹配，AI 人声演唱。</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">更多</div>
+          <h4>更多功能</h4>
+          <p>点击查看更多技能，探索无限可能。</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

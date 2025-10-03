@@ -241,6 +241,38 @@
       background: #ccc;
       cursor: not-allowed;
     }
+
+    /* 最近对话 默认隐藏 */
+.recent-list {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+  background: #fff;
+  position: relative;
+  z-index: 2; /* 确保悬浮时在上方 */
+}
+
+.recent-list li {
+  padding: 8px 0;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.recent-list li:hover {
+  color: #3a6ff7;
+}
+
+.recent-toggle {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  position: sticky;   /* 固定在 新对话 下方 */
+  top: 52px;          /* 这里要配合 新对话 的高度 */
+  background: #f9fafc;
+  z-index: 3;
+}
+
   </style>
 </head>
 <body>
@@ -261,10 +293,20 @@
               <li>图像生成</li>
               <li>阅读总结</li>
               <li>音乐生成</li>
-              <li>最近对话</li>
+
+              <li class="recent-toggle">最近对话 ▾</li>
+        <ul class="recent-list">
+          <li>建立 GIF 的方法</li>
+          <li>调用豆包 API</li>
+          <li>制作 AI 网页</li>
+          <li>报文分段原因</li>
+          <li>计算数据传输时间</li>
+          <li class="see-more">查看更多...</li>
+        </ul>
+
               <li>我的智能体</li>
               <li>收藏夹</li>
-            </ul>
+              </ul>
           </div>
         </div>
         <div class="sidebar-footer">
@@ -341,6 +383,18 @@
     input.addEventListener('input', () => {
       button.disabled = input.value.trim() === '';
     });
+
+    // 最近对话折叠展开
+const toggle = document.querySelector('.recent-toggle');
+const list = document.querySelector('.recent-list');
+let expanded = false;
+
+toggle.addEventListener('click', () => {
+  expanded = !expanded;
+  list.style.display = expanded ? 'block' : 'none';
+  toggle.textContent = expanded ? '最近对话 ▴' : '最近对话 ▾';
+});
+
   </script>
 </body>
 </html>

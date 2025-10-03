@@ -22,6 +22,7 @@
 
     .wrapper {
       display: flex;
+      flex-direction: column; /* 让 footer 在底部 */
       width: 100%;
       max-width: 1300px;
       background: #fff;
@@ -32,6 +33,10 @@
     }
 
     /* 左侧导航 */
+    .content {
+      display: flex;
+      flex: 1;
+    }
     .sidebar {
       width: 240px;
       background: #f9fafc;
@@ -196,95 +201,146 @@
       margin-bottom: 12px;
     }
 
-    /* 小美术优化：渐变标题 */
+    /* 渐变标题 */
     .header h2 span {
       background: linear-gradient(90deg, #3a6ff7, #7b2ff7);
       -webkit-background-clip: text;
       color: transparent;
     }
+
+    /* 底部输入框 */
+    .footer {
+      display: flex;
+      padding: 15px;
+      border-top: 1px solid #eee;
+      background: #fafafa;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .footer input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .footer button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #3a6ff7;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .footer button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- 左侧导航 -->
-    <aside class="sidebar">
-      <div>
-        <div class="profile">
-          <img src="王姐.jpg" alt="摩根">
-          <span>摩根ai</span>
+    <div class="content">
+      <!-- 左侧导航 -->
+      <aside class="sidebar">
+        <div>
+          <div class="profile">
+            <img src="王姐.jpg" alt="摩根">
+            <span>摩根ai</span>
+          </div>
+          <div class="menu">
+            <ul>
+              <li>新对话</li>
+              <li>AI 搜索</li>
+              <li>帮我写作</li>
+              <li>图像生成</li>
+              <li>阅读总结</li>
+              <li>音乐生成</li>
+              <li>最近对话</li>
+              <li>我的智能体</li>
+              <li>收藏夹</li>
+            </ul>
+          </div>
         </div>
-        <div class="menu">
-          <ul>
-            <li>新对话</li>
-            <li>AI 搜索</li>
-            <li>帮我写作</li>
-            <li>图像生成</li>
-            <li>阅读总结</li>
-            <li>音乐生成</li>
-            <li>最近对话</li>
-            <li>我的智能体</li>
-            <li>收藏夹</li>
-          </ul>
+        <div class="sidebar-footer">
+          下载 Windows 客户端
         </div>
-      </div>
-      <div class="sidebar-footer">
-        下载 Windows 客户端
-      </div>
-    </aside>
+      </aside>
 
-    <!-- 主内容 -->
-    <main class="main">
-      <!-- 顶部右上角 -->
-      <div class="topbar">
-        <div class="bell"></div>
-        <div class="avatar">
-          <img src="123920135_p0.jpg" alt="用户头像">
-        </div>
-      </div>
-
-      <div class="header">
-        <h2>你好，<span>用户7105015295005</span></h2>
-        <h3>你的超级助手已上线！</h3>
-      </div>
-
-      <div class="features">
-        <div class="card">
-          <div class="tag">AI 搜索</div>
-          <h4>AI 搜索</h4>
-          <p>实时对话，书籍查询，整合信息。</p>
+      <!-- 主内容 -->
+      <main class="main">
+        <!-- 顶部右上角 -->
+        <div class="topbar">
+          <div class="bell"></div>
+          <div class="avatar">
+            <img src="123920135_p0.jpg" alt="用户头像">
+          </div>
         </div>
 
-        <div class="card">
-          <div class="tag">帮我写作</div>
-          <h4>帮我写作</h4>
-          <p>各种体裁，润色改写，一键成文。</p>
+        <div class="header">
+          <h2>你好，<span>用户7105015295005</span></h2>
+          <h3>你的超级助手已上线！</h3>
         </div>
 
-        <div class="card">
-          <div class="tag">图像生成</div>
-          <h4>图像生成</h4>
-          <p>自定义风格，角色设定，复刻同款。</p>
-        </div>
+        <div class="features">
+          <div class="card">
+            <div class="tag">AI 搜索</div>
+            <h4>AI 搜索</h4>
+            <p>实时对话，书籍查询，整合信息。</p>
+          </div>
 
-        <div class="card">
-          <div class="tag">阅读总结</div>
-          <h4>阅读总结</h4>
-          <p>论文总结，财经合同，翻译总结。</p>
-        </div>
+          <div class="card">
+            <div class="tag">帮我写作</div>
+            <h4>帮我写作</h4>
+            <p>各种体裁，润色改写，一键成文。</p>
+          </div>
 
-        <div class="card">
-          <div class="tag">音乐生成</div>
-          <h4>音乐生成</h4>
-          <p>歌词配曲，风格匹配，AI 人声演唱。</p>
-        </div>
+          <div class="card">
+            <div class="tag">图像生成</div>
+            <h4>图像生成</h4>
+            <p>自定义风格，角色设定，复刻同款。</p>
+          </div>
 
-        <div class="card">
-          <div class="tag">更多</div>
-          <h4>更多功能</h4>
-          <p>点击查看更多技能，探索无限可能。</p>
+          <div class="card">
+            <div class="tag">阅读总结</div>
+            <h4>阅读总结</h4>
+            <p>论文总结，财经合同，翻译总结。</p>
+          </div>
+
+          <div class="card">
+            <div class="tag">音乐生成</div>
+            <h4>音乐生成</h4>
+            <p>歌词配曲，风格匹配，AI 人声演唱。</p>
+          </div>
+
+          <div class="card">
+            <div class="tag">更多</div>
+            <h4>更多功能</h4>
+            <p>点击查看更多技能，探索无限可能。</p>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
+
+    <!-- 底部输入框 -->
+    <div class="footer">
+      <input type="text" id="chatInput" placeholder="请输入你所有的疑问，比如1+1=几" />
+      <button id="sendBtn" disabled title="请输入内容后再发送">发送</button>
+    </div>
   </div>
+
+  <script>
+    const input = document.getElementById('chatInput');
+    const button = document.getElementById('sendBtn');
+
+    input.addEventListener('input', () => {
+      button.disabled = input.value.trim() === '';
+    });
+  </script>
 </body>
 </html>
